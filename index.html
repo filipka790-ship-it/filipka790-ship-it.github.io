@@ -1,166 +1,230 @@
+
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Резюме - Рогозин Филипп</title>
+    <title>Резюме - Филипп Рогозин</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
     <style>
+        :root {
+            --primary-bg: #ffffff;
+            --sidebar-bg: #1e293b; 
+            --text-main: #333333;
+            --text-sidebar: #e2e8f0;
+            --accent-color: #3b82f6; 
+            --tag-bg: #eff6ff;
+            --tag-text: #1d4ed8;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9; 
+            font-family: 'Open Sans', sans-serif;
+            background-color: #eef2f6; 
             margin: 0;
-            padding: 0;
+            padding: 40px 0;
             display: flex;
             justify-content: center;  
-            align-items: center; 
-            min-height: 100vh; 
+            min-height: 100vh;
+            color: var(--text-main);
         }
 
         .container {
             display: flex;
-            max-width: 1200px;  
-            margin: 0 auto;  
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            flex-wrap: wrap;
-            border-radius: 10px; 
-            width: 100%;  
+            max-width: 1000px;
+            width: 95%;
+            background-color: var(--primary-bg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 12px; 
+            overflow: hidden;
+            align-items: stretch; /* Чтобы колонки были одной высоты */
         }
 
-        .left-column, .right-column {
-            padding: 20px;
+        /* --- ЛЕВАЯ КОЛОНКА --- */
+        .left-column {
+            width: 34%; /* Немного шире, чтобы текст навыков влез красиво */
+            background-color: var(--sidebar-bg); 
+            color: var(--text-sidebar);
+            padding: 40px 25px;
+            box-sizing: border-box;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .photo-container {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(255,255,255, 0.1);
+            background-color: #334155;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .left-column h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6em;
+            margin: 15px 0 5px 0;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .left-column .role {
+            font-size: 0.9em;
+            color: #94a3b8;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        .sidebar-section {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .sidebar-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1em;
+            color: #fff;
+            border-bottom: 1px solid rgba(255,255,255, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.9em;
+        }
+
+        .contact-item i {
+            width: 25px;
+            color: var(--accent-color);
+            flex-shrink: 0;
+        }
+
+        .contact-item a {
+            color: var(--text-sidebar);
+            text-decoration: none;
+            transition: 0.3s;
+            word-break: break-all;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Стили для навыков в левой колонке */
+        .sidebar-skill-group {
+            margin-bottom: 20px;
+        }
+
+        .sidebar-skill-title {
+            font-size: 0.85em;
+            font-weight: 700;
+            color: var(--accent-color); /* Синий акцент */
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-skill-text {
+            font-size: 0.85em;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+
+        /* --- ПРАВАЯ КОЛОНКА --- */
+        .right-column {
+            width: 66%;
+            padding: 40px;
             box-sizing: border-box;
         }
 
-        .left-column {
-            width: 30%;
-            background-color: #f2f2f2; 
-            border-right: 2px solid #ddd;
-        }
-
-        .right-column {
-            width: 70%;
-            text-align: left;
-        }
-
-        img {
-            width: 200px;
-            height: auto;
-            display: block;
-            margin: 0 0 20px 0;
-            
-        }
-
-        h1, h2 {
-            margin-bottom: 10px;
-            text-align: left;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        ul li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        ul li::before {
-            content: "•";
-            color: black;
+        .right-column h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #1e293b;
             font-size: 1.5em;
-            margin-right: 10px;
-        }
-
-        hr {
-            border: none;
-            height: 1px;
-            background-color: #ccc;
-            margin: 20px 0;
-        }
-
-        .skills-list, .hobby-list, .education p {
-            margin-left: 20px;
-        }
-
-        .skills-list li::before,
-        .hobby-list li::before,
-        .education p:first-child::before {
-            content: "•";
-            color: black;
-            font-size: 1.2em;
-            margin-right: 10px;
-        }
-
-        .contacts p {
+            margin-top: 0;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            font-size: 1em;
         }
 
-        .contacts p i {
-            margin-right: 10px;
+        .right-column h2::before {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 24px;
+            background-color: var(--accent-color);
+            margin-right: 15px;
+            border-radius: 2px;
         }
 
-        .languages-list {
+        section { margin-bottom: 35px; }
+        p { line-height: 1.6; margin-top: 0; color: #444; }
+
+        /* Опыт работы */
+        .job-block {
+            margin-bottom: 25px;
+            border-left: 2px solid #e2e8f0;
+            padding-left: 20px;
+        }
+
+        .job-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .job-meta {
+            font-size: 0.9em;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .job-details ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
-        .languages-list li {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
+        .job-details li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 8px;
+            line-height: 1.5;
+            font-size: 0.95em;
         }
 
-        .languages-list li::before {
-            content: none; 
-        }
-
-        .languages-list i {
-            margin-right: 10px;
-            color: #000;
-        }
-
-        .location {
-            display: flex;
-            align-items: center;
-            font-size: 1em;
-            color: #555;
-        }
-
-        .location i {
-            margin-right: 10px;
-            color: #ff5722; 
+        .job-details li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
         }
 
         @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                width: 100%;  
-            }
-
-            .left-column, .right-column {
-                width: 100%;
-            }
-
-            img {
-                width: 150px;
-                height: auto;
-            }
-        }
-
-        
-        a {
-            text-decoration: none;
-            color: black;
-        }
-
-        a:hover {
-            text-decoration: underline;
+            .container { flex-direction: column; width: 100%; border-radius: 0; }
+            .left-column, .right-column { width: 100%; padding: 30px 20px; }
+            .left-column { text-align: center; }
+            .sidebar-section { text-align: left; }
+            .job-block { padding-left: 15px; }
         }
     </style>
 </head>
@@ -168,95 +232,149 @@
 
 <div class="container">
     <div class="left-column">
-        <h1>Рогозин Филипп</h1>
-    
-        <p class="location"><i class="fas fa-map-marker-alt"></i> Санкт-Петербург, Россия</p> 
-        <hr>
+        <div class="photo-container">
+            <img src="2024-12-08 22.58.54.jpg" alt="Филипп Рогозин">
+        </div>
+        
+        <h1>Филипп Рогозин</h1>
+        <div class="role">Assistant / Junior Media Buyer</div>
+        
+        <div class="sidebar-section">
+            <h2>Информация</h2>
+            <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Санкт-Петербург</div>
+            <div class="contact-item"><i class="fas fa-birthday-cake"></i> 21 год</div>
+        </div>
 
-        <p><strong>Возраст:</strong> 21 года</p>
-        <p><strong>Должность:</strong> Помощник медиабайера / Junior Media Buyer</p> 
-        <p><strong>Зарплата:</strong> не указана</p>  
-
-        <hr>
-
-        <section id="contacts">
+        <div class="sidebar-section">
             <h2>Контакты</h2>
-            <div class="contacts">
-                <p><i class="fas fa-phone"></i> +7 911 277 05 57</p>
-                <p><i class="fab fa-telegram-plane"></i> @sold_out1</p>
-                <p><i class="fas fa-envelope"></i> filipka790@mail.ru</p>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i> 
+                <a href="tel:+79112770557">+7 911 277 05 57</a>
             </div>
-        </section>
+            <div class="contact-item">
+                <i class="fab fa-telegram-plane"></i> 
+                <a href="https://t.me/sold_out1" target="_blank">@sold_out1</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i> 
+                <a href="mailto:filipka790@mail.ru">filipka790@mail.ru</a>
+            </div>
+        </div>
 
-        <hr>
+        <div class="sidebar-section">
+            <h2>Языки</h2>
+            <div class="contact-item" style="flex-direction: column; align-items: flex-start;">
+                <div style="margin-bottom: 5px;"><strong>Русский</strong></div>
+                <div><strong>Английский</strong> (B2)</div>
+                </div>
+        </div>
 
-        <section id="languages">
-            <h2>Знание языков</h2>
-            <ul class="languages-list">
-                <li><i class="fas fa-globe"></i> Русский</li> 
-                <li><i class="fas fa-globe"></i> Английский</li>
-            </ul>
-        </section>
+        <div class="sidebar-section">
+    <h2>Навыки и Инструменты</h2>
+    
+    <div class="sidebar-skill-group">
+        <div class="sidebar-skill-title">Источники трафика</div>
+        <div class="sidebar-skill-text">Facebook Ads Manager (запуск, масштабирование, работа с бюджетами), Telegram (УБТ).</div>
+    </div>
 
-        <hr>
+    <div class="sidebar-skill-group">
+        <div class="sidebar-skill-title">Рабочий софт</div>
+        <div class="sidebar-skill-text">Dolphin Anty, AdsPower, Keitaro (базовое понимание), SPY-сервисы (AdHeart, FB Library).</div>
+    </div>
 
-        <section id="skills">
-            <h2>Навыки</h2>
-            <ul class="skills-list">
-        <li>Работа с бюджетами от 150 $ в день</li>
-    <li>Оптимизация рекламных кампаний</li>
-    <li>Анализ ключевых метрик: CTR, CPM, CPC, CPA, ROI</li>
-    <li>Поиск и тестирование связок</li>
-    <li>Владение графическими редакторами</li>
-    <li>Понимание логики работы рекламных аккаунтов и причин банов</li>
+    <div class="sidebar-skill-group">
+        <div class="sidebar-skill-title">Аналитика</div>
+        <div class="sidebar-skill-text">Глубокий анализ метрик, работа с Google Sheets/Excel.</div>
+    </div>
 
+    <div class="sidebar-skill-group">
+        <div class="sidebar-skill-title">Технические навыки</div>
+        <div class="sidebar-skill-text">Понимание логики банов FB, структуры HTML/CSS, принципов работы Python/JS и API (на уровне чтения документации).</div>
+    </div>
 
-</ul>
-        </section>
+    <div class="sidebar-skill-group">
+        <div class="sidebar-skill-title">Графические редакторы</div>
+        <div class="sidebar-skill-text">Adobe Photoshop, Figma, Canva, CapCut, генерация креативов через нейросети (AI).</div>
+    </div>
+
+    <div class="sidebar-skill-group">
+        <div class="sidebar-skill-title">Личные качества</div>
+        <div class="sidebar-skill-text">Аналитическое мышление, системный подход, умение работать с большими объемами данных.</div>
+    </div>
+</div>
     </div>
 
     <div class="right-column">
-        <img src="2024-12-08 22.58.54.jpg">
+        
+        <section id="about">
+            <h2>О себе</h2>
+            <p>
+                Media Buyer с техническим мышлением и опытом работы в Facebook Ads (вертикали Nutra и Gambling). Обладаю системным подходом: любую новую информацию сразу превращаю в практический опыт. Не боюсь сложностей и рутины — мне искренне нравится вникать в детали настроек, искать связки и анализировать цифры. Готов брать на себя ответственность за принятые решения и разумные риски. Нацелен на быстрый профессиональный рост и максимальный результат.
+            </p>
+        </section>
 
-        <section id="courses">
-            <h2>Курсы</h2>
-<ul class="courses">
-    <li><a href="https://fb-killa.pro/obuchenie/" target="_blank">Курс по гемблингу на сайте FB-Kila</a></li>
-    <li><a href="https://restady.com/dropshipping" target="_blank">Курс от Restady — Дропшиппинг в нише красоты и ухода за собой</a></li>
-</ul>
-</section>
+        <section id="experience">
+            <h2>Опыт работы</h2>
+            
+            <div class="job-block">
+                <div class="job-title">Media Buyer (Facebook Ads)</div>
+                <span class="job-meta">E-commerce / Nutra | Июль 2025 — по настоящее время (6 месяцев)</span>
+                <p style="font-size: 0.9em; margin-bottom: 10px;">Ниша: Nutra (Shopify проекты). ГЕО: USA, LatAm.</p>
+                <div class="job-details">
+                    <ul>
+                        <li><strong>Полный цикл запуска:</strong> Самостоятельный запуск РК — от прогрева аккаунтов до анализа результатов. Работа со спендом ~$1,000/мес.</li>
+                        <li><strong>Работа с креативами:</strong> Создание статических и видео-креативов (Photoshop, Figma, CapCut, Canva), создание креативов при помощи AI. Постановка ТЗ дизайнерам. Генерация гипотез для повышения CTR.</li>
+                       <li><strong>Техническая часть:</strong> Полная настройка инфраструктуры для запуска (антидетект-браузеры, прокси, привязка платежных методов). Парковка доменов, настройка Facebook Pixel. Базовое понимание работы трекера Keitaro.</li>
+                        <li><strong>Аналитика:</strong> Ежедневный мониторинг метрик (CPM, CPC, CTR, CPA). Ведение отчетности и сведение статистики в Google Sheets/Excel. Оптимизация кампаний на основе данных и отключение неэффективных адсетов.</li>
+                    </ul>
+                </div>
+            </div>
 
-        <hr>
+            <div class="job-block">
+                <div class="job-title">Assistant Media Buyer (Помощник байера)</div>
+                <span class="job-meta">Арбитражная команда (Gambling) | Май 2025 — Июль 2025 (2 месяца)</span>
+                <div class="job-details">
+                    <ul>
+                        <li>Залив трафика на гемблинг-офферы (приложения/PWA) под руководством тимлида.</li>
+                        <li>Работа с антидетект-браузерами (Dolphin Anty, AdsPower) и прокси.</li>
+                        <li>Тестирование различных подходов и связок креатив+лендинг.</li>
+                        <li>Понимание специфики работы с серыми нишами (прохождение модерации, работа с банами).</li>
+                    </ul>
+                </div>
+            </div>
 
-        <section id="education">
-            <h2>Образование</h2>
-            <div class="education">
-                <p>ИТМО: Бакалавр</p>
-                <p>Программная инженерия, компьютерные технологии в дизайне</p>
+            <div class="job-block">
+                <div class="job-title">Traffic Manager / УБТ-специалист</div>
+                <span class="job-meta">Telegram | Январь 2024 — Май 2025 (1.5 года)</span>
+                <div class="job-details">
+                    <ul>
+                        <li>Построение и управление сеткой из 30+ аккаунтов.</li>
+                        <li>Генерация Short-form контента, обеспечивающего органический трафик.</li>
+                        <li><strong>Результат:</strong> Выход на стабильный поток 40+ валидных заявок в день.</li>
+                        <li>Систематизация работы с трафиком, обработка входящих лидов.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <hr>
+ <section id="education">
+    <h2>Образование и курсы</h2>
+    
+    <div class="job-block">
+        <div class="job-title">Университет ИТМО | Бакалавр</div>
+        <span class="job-meta">Факультет: Программная инженерия и компьютерные технологии</span>
+    </div>
 
-        <section id="hobbies">
-            <h2>Хобби и интересы</h2>
-            <ul class="hobby-list">
-    <li>Слежу за обновлениями Meta и тестирую новые фичи</li>
-    <li>Изучение трендов в соцсетях</li>
-    <li>Хоккей и большой теннис</li>
-</ul>
-        </section>
+    <div class="job-block">
+        <div class="job-title">Курс FB-Kila | Арбитраж трафика (Facebook / Nutra)</div>
+    </div>
+    
+    <div class="job-block"> 
+        <div class="job-title">Курс Restady | Dropshipping & Shopify</div>
+    </div>
 
-        <hr>
+</section>
 
-        <section id="about">
-            <h2>О себе</h2>
-            <p>Последние полгода занимаюсь арбитражем трафика на Facebook для Shopify-проектов в нише нутры. Также получил опыт работы с гемблинг-вертикалью в команде (1 месяц).
-
-Мне нравится весь процесс медиабайинга: от тестирования креативов и гипотез до анализа метрик и масштабирования успешных связок. Постоянно изучаю новые подходы к оптимизации кампаний и инструменты для работы с трафиком.
-
-Ищу команду, где смогу применить накопленный опыт и продолжить развиваться как media buyer.</p>
-        </section>
     </div>
 </div>
 
